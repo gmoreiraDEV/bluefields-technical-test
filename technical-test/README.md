@@ -36,6 +36,7 @@ Abra `http://localhost:3000`.
 - `npm run start`: inicia o servidor standalone.
 - `npm run db:generate`: gera Prisma Client.
 - `npm run db:migrate`: aplica migrations em produção.
+- `npm run db:seed:startups`: popula o banco com startups iniciais.
 
 ## Deploy Railway
 
@@ -47,3 +48,20 @@ Configure o service Railway com:
 - `SESSION_SECRET`: segredo forte, diferente do valor local.
 
 O start command do Railway força `HOSTNAME=0.0.0.0` para o Next.js standalone escutar corretamente dentro do container. O healthcheck público está em `/api/health`.
+
+### Seed inicial via Railway CLI
+
+O arquivo de seed está em `prisma/seeds-startups.sql`.
+
+Para executar o seed no ambiente Railway, rode dentro do diretório `technical-test`:
+
+```bash
+railway run -- npm run db:seed:startups
+```
+
+Se quiser executar o arquivo diretamente pelo Prisma no Railway CLI:
+
+```bash
+railway run -- npx prisma db execute --schema ./prisma/schema.prisma --file ./prisma/seeds-startups.sql
+```
+
