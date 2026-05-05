@@ -10,7 +10,7 @@
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate deploy",
     "postinstall": "prisma generate",
-    "db:seed:startups": "prisma db execute --schema ./prisma/schema.prisma --file ./prisma/seeds-startups.sql"
+    "db:seed:startups": "prisma db execute --file ./prisma/seeds-startups.sql"
   },
   "dependencies": {
     "@prisma/adapter-pg": "7.8.0",

@@ -53,6 +53,8 @@ O start command do Railway força `HOSTNAME=0.0.0.0` para o Next.js standalone e
 
 O arquivo de seed está em `prisma/seeds-startups.sql`.
 
+> Observação: no Prisma 7 usado neste projeto, o `db execute` lê a conexão pelo `prisma.config.ts` e não aceita mais `--schema`.
+
 Para executar o seed no ambiente Railway, rode dentro do diretório `technical-test`:
 
 ```bash
@@ -62,6 +64,5 @@ railway run -- npm run db:seed:startups
 Se quiser executar o arquivo diretamente pelo Prisma no Railway CLI:
 
 ```bash
-railway run -- npx prisma db execute --schema ./prisma/schema.prisma --file ./prisma/seeds-startups.sql
+railway run -- npx prisma db execute --file ./prisma/seeds-startups.sql
 ```
-
